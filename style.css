@@ -1,0 +1,12 @@
+.product-list {
+  display: block; /* Make sure it's not 'none' */
+}
+.product-list li {
+  visibility: visible; /* Ensure items are visible */
+  opacity: 1; /* Ensure items aren't transparent */
+}
+
+li {
+  background-color: aquamarine;
+  list-style-type: none;
+}
