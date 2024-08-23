@@ -8,6 +8,7 @@ const products = [
     description:
       "A mechanical gaming keyboard with Razer Green switches and customizable RGB lighting.",
     category: "Gaming",
+    // now need to add imgs in products
   },
   {
     name: "Logitech MX Keys",
