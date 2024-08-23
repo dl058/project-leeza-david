@@ -3,93 +3,108 @@ const productList = document.querySelector(".product-list");
 
 const products = [
   {
-    name: "Razer BlackWidow V3",
-    price: 139.99,
-    description:
-      "A mechanical gaming keyboard with Razer Green switches and customizable RGB lighting.",
-    category: "Gaming",
-    // now need to add imgs in products
-  },
-  {
-    name: "Logitech MX Keys",
-    price: 119.99,
-    description:
-      "A wireless keyboard with backlit keys, designed for comfort and productivity.",
-    category: "Productivity",
-  },
-  {
-    name: "Corsair K95 RGB Platinum",
+    image: "images/black.avif",
+    name: "Joe's Signature Keyboard",
     price: 199.99,
     description:
-      "High-performance mechanical keyboard with macro keys, RGB backlighting, and durable design.",
-    category: "Gaming",
+      "Joe's Signature 75% Keyboard is the culmination of modern keyboard design, with a little disruption thrown in for good measure. The dial top right can adjust to any needs, such as changing the volume, or skipping videos.",
+    category: "75%",
   },
   {
-    name: "Microsoft Sculpt Ergonomic Keyboard",
-    price: 129.99,
+    image: "images/blueJ.avif",
+    name: "Joe's Signature Keyboard Blue Edition",
+    price: 249.99,
     description:
-      "Ergonomically designed keyboard with a split layout and cushioned palm rest for comfort.",
-    category: "Productivity",
+      "Joe's Signature 75% Keyboard Blue Edition is deep blue. Elsewhere, dark grays and golden accents add welcome contrast, while matching golden legends complete the look. Sculpted in Cherry profile",
+    category: "75%",
   },
   {
-    name: "SteelSeries Apex Pro",
-    price: 179.99,
+    image: "images/frost.avif",
+    name: "Joe's Signature Keyboard Snow Edition",
+    price: 249.99,
     description:
-      "A mechanical gaming keyboard with customizable per-key RGB lighting and adjustable actuation switches.",
-    category: "Gaming",
+      "Joe's Signature 75% Keyboard Snow Edition. Designed for both aesthetics and performance, this compact yet full-featured keyboard offers a balance between style and functionality.",
+    category: "75%",
   },
   {
-    name: "Keychron K6",
-    price: 69.99,
+    image: "images/emerald.avif",
+    name: "Emerald Garden Keyboard",
+    price: 249.99,
     description:
-      "Compact 65% wireless mechanical keyboard with hot-swappable keys and RGB backlighting.",
-    category: "Productivity",
+      "Immerse yourself in a lush, verdant typing experience with the Emerald Garden Keyboard. Designed to blend elegance with functionality, this keyboard stands out with its unique and sophisticated design elements.",
+    category: "80%",
   },
   {
-    name: "Ducky One 2 Mini",
-    price: 109.99,
+    image: "images/paint.avif",
+    name: "Paint Splatter Keyboard",
+    price: 249.99,
     description:
-      "60% compact mechanical keyboard with Cherry MX switches and customizable RGB lighting.",
-    category: "Gaming",
+      "Add a splash of creativity to your workspace with the Paint Splatter Keyboard. This vibrant and artistic keyboard design is perfect for those who appreciate bold aesthetics and want to make a statement with their tech accessories.",
+    category: "80%",
   },
   {
-    name: "Apple Magic Keyboard",
-    price: 99.99,
+    image: "images/rainbow.avif",
+    name: "Chromatic RGB Keyboard",
+    price: 299.99,
     description:
-      "Sleek and minimalist keyboard with a low profile and rechargeable battery, designed for Mac.",
-    category: "Productivity",
+      "Elevate your typing experience with the Chromatic RGB Keyboard, designed to offer a stunning visual experience alongside high-performance functionality. This keyboard is perfect for those who love to blend vibrant aesthetics with top-notch features.",
+    category: "65%",
   },
   {
-    name: "HyperX Alloy FPS Pro",
-    price: 89.99,
+    image: "images/rgbSilver.avif",
+    name: "Silver RBG Keyboard",
+    price: 249.99,
     description:
-      "Compact mechanical keyboard with Cherry MX switches and red LED backlighting, ideal for FPS gaming.",
-    category: "Gaming",
+      "Elevate your typing experience with the Silver RGB Keyboard, a masterful fusion of sleek aesthetics and cutting-edge technology. Designed to complement any modern workspace, this keyboard combines understated elegance with vibrant, customizable lighting.",
+    category: "65%",
   },
   {
-    name: "Logitech Ergo K860",
-    price: 129.99,
+    image: "images/redJ.avif",
+    name: "Red Samurai Keyboard",
+    price: 199.99,
     description:
-      "Ergonomic split keyboard with a curved design and cushioned palm rest to reduce strain.",
-    category: "Productivity",
+      "Embrace the spirit of precision and elegance with the Red Samurai Keyboard. Designed to capture the essence of traditional Japanese aesthetics while delivering high-performance functionality, this keyboard is a blend of form and function that stands out in any setup.",
+    category: "65%",
+  },
+
+  {
+    image: "images/sapphire.avif",
+    name: "Sapphire Keyboard",
+    price: 199.99,
+    description:
+      "Unveil a touch of elegance and high performance with the Sapphire Keyboard. Designed to combine sophistication with functionality, this keyboard brings a refined aesthetic and advanced features to your workspace.",
+    category: "65%",
+  },
+  {
+    image: "images/snow.avif",
+    name: "Frost Keyboard",
+    price: 199.99,
+    description:
+      "Experience the cool elegance and high performance of the Frost Keyboard. Inspired by the serene and refreshing beauty of winter, this keyboard combines a crisp, frosty design with advanced functionality to elevate your typing and gaming experience.",
+    category: "65%",
   },
 ];
 //   change the info for the rest of the objects;
 const productsBuilder = () => {
   products.forEach((product) => {
     const newLi = document.createElement("li");
+    const keyboardImage = document.createElement("img");
     const keyboardName = document.createElement("p");
     const keyboardPrice = document.createElement("p");
     const keyboardDescription = document.createElement("p");
     const keyboardCategory = document.createElement("p");
     const keyboardAddToCart = document.createElement("button");
 
+    keyboardImage.src = product.image;
+
+    keyboardImage.classList.add("image");
     keyboardName.classList.add("name");
     keyboardPrice.classList.add("price");
     keyboardDescription.classList.add("description");
     keyboardCategory.classList.add("category");
     keyboardAddToCart.classList.add("addToCart");
 
+    // keyboardImage.textContent = product.image;
     keyboardName.textContent = product.name;
     keyboardPrice.textContent = `$${product.price.toFixed(2)}`;
     keyboardDescription.textContent = product.description;
@@ -97,6 +112,7 @@ const productsBuilder = () => {
     keyboardAddToCart.textContent = "Add to Cart";
 
     newLi.append(
+      keyboardImage,
       keyboardName,
       keyboardPrice,
       keyboardDescription,
@@ -106,7 +122,7 @@ const productsBuilder = () => {
     productList.append(newLi);
   });
 };
-
+// dsadsad
 // make an unordered list inside of product list
 // then make list items inside of the UL
 
