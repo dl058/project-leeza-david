@@ -11,57 +11,79 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
   </head>
   <body>
     <!-- logo and nav list -->
-    <header>
-      <h1>Joe's Keyboards</h1>
-      <nav>
+    <div class="container">
+      <header>
+        <h1>Joe's Keyboards</h1>
+        <div class="shopping">
+          <a href="#"> <i class="fa-solid fa-cart-shopping"></i></a>
+          <span class="quantity">0</span>
+        </div>
+      </header>
+      <div class="list"></div>
+    </div>
+    <div class="card">
+      <h2>Card</h2>
+      <ul class="listCard"></ul>
+      <div class="checkout">
+        <div class="total">0</div>
+        <div class="closeShopping">Close</div>
+      </div>
+    </div>
+    <!-- <nav>
         <ul>
           <li>About Us</li>
           <li>Products</li>
           <li>Contact Us</li>
-          <li>Cart</li>
+          <button>View Cart</button>
         </ul>
-      </nav>
-    </header>
+      </nav> -->
 
     <!-- products, descriptions and img, categories, prices, add to cart button -->
-    <section class="about-us">
+    <!-- <section class="about-us">
       <h2>About Us:</h2>
       <p>
-        Welcome to Joe's Keyboards! We’re passionate about creating
-        high-quality, innovative keyboards that elevate your typing and gaming
-        experience. Founded in 2010, our mission is to blend cutting-edge
-        technology with exceptional design to deliver keyboards that not only
-        look stunning but also perform flawlessly. Our journey began with a
-        simple idea: to craft keyboards that meet the needs of enthusiasts and
-        professionals alike. What started as a small team of passionate
-        designers and engineers has grown into a leading company in the keyboard
-        industry. Our dedication to quality, functionality, and aesthetics has
-        driven us to explore new frontiers in keyboard design. We believe that a
-        keyboard should be more than just a tool—it should be an extension of
-        your style and creativity. Our design philosophy combines sleek
-        aesthetics with ergonomic functionality, ensuring that each keyboard not
-        only looks great but also feels comfortable and enhances your
-        productivity or gaming experience. Our keyboards are built with
-        precision and care, using only the highest quality materials and
-        components. From tactile mechanical switches to customizable
-        backlighting, every element is engineered to provide durability,
-        reliability, and performance. We put our keyboards through rigorous
-        testing to ensure they meet the highest standards of excellence.
+        Welcome to Joe's Keyboards! Since 2010, we've been dedicated to creating
+        high-quality keyboards that blend cutting-edge technology with
+        exceptional design. What began as a small team of passionate designers
+        has grown into a leading company in the keyboard industry. Our keyboards
+        combine sleek aesthetics with ergonomic functionality, ensuring they
+        look great, feel comfortable, and enhance your productivity or gaming
+        experience. Built with precision and the highest quality materials, our
+        keyboards are engineered for durability, reliability, and top
+        performance.
       </p>
     </section>
     <section class="product-list">
       <h3>Products</h3>
       <ul class="products"></ul>
     </section>
+    <div class="card">
+      <h2>Card</h2>
+      <ul class="listCard">
+        <div class="checkout"></div>
+        <div class="total">0</div>
+        <div class="closeShopping">Close</div>
+      </ul>
+    </div>
+
     <footer>
       <img />
       <p>Terms and Conditions</p>
-      <button>View Cart</button>
-    </footer>
-
+    </footer> -->
+    <!-- ---------------------------------------------- -->
     <script src="./script.js"></script>
   </body>
 </html>

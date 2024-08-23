@@ -1,9 +1,11 @@
-body,
+/* body,
 p,
 ul {
   margin: 0;
   padding: 0;
-  font-family: "Noto Sans", sans-serif;
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 header {
   text-align: center;
@@ -11,10 +13,8 @@ header {
 }
 .product-list {
   display: block; /* Make sure it's not 'none' */
-}
+/* }
 .product-list li {
-  visibility: visible; /* Ensure items are visible */
-  opacity: 1; /* Ensure items aren't transparent */
   padding: 20px;
   border: 3px solid black;
   text-align: center;
@@ -35,4 +35,50 @@ li {
   filter: drop-shadow(5px 5px 5px black);
 
   border-radius: 10px;
+}
+
+header {
+  background-color: #ffbd59;
+}
+
+section.about-us {
+  font-size: small;
+} */
+
+.container {
+  width: 1000px;
+  margin: auto;
+  transition: 0.5s;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 50px;
+  margin-top: 50px;
+}
+header .shopping {
+  position: relative;
+  text-align: right;
+}
+
+.card {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 500px;
+  background-color: dimgray;
+  height: 100vh;
+  transition: 0.5s;
+}
+
+.card .checkOut div:nth-child(2) {
+  background-color: black;
+  color: #fff;
+}
+
+.active .card {
+  left: calc(100% - 500px);
+}
+.active .container {
+  transform: translate(-200px);
 }
