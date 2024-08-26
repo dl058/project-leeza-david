@@ -61,7 +61,7 @@ header .shopping {
   text-align: right;
 }
 
-.card {
+.cart-container {
   position: fixed;
   top: 0;
   left: 100%;
@@ -69,14 +69,15 @@ header .shopping {
   background-color: dimgray;
   height: 100vh;
   transition: 0.5s;
+  overflow: scroll;
 }
 
-.card .checkOut div:nth-child(2) {
+.cart-container .checkOut div:nth-child(2) {
   background-color: black;
   color: #fff;
 }
 
-.active .card {
+.active .cart-container {
   left: calc(100% - 500px);
 }
 .active .container {
