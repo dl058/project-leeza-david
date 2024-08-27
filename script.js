@@ -139,6 +139,7 @@ const cartBuilder = () => {
 const productsBuilder = () => {
   products.forEach((product, index) => {
     const newLi = document.createElement("li");
+    newLi.classList.add("product");
     const keyboardImage = document.createElement("img");
     const keyboardName = document.createElement("p");
     const keyboardPrice = document.createElement("p");
@@ -249,13 +250,13 @@ creditForm.addEventListener("submit", (e) => {
   tax.textContent = "Tax: " + (runningTotal * 0.06).toFixed(2);
   newTotal.textContent = "Taxed Total: " + (runningTotal * 1.06).toFixed(2);
   newDiv.append(newTitle, newSubtotal, tax, newTotal);
+  cart.forEach((item) => {
+    const purchasedItems = document.createElement("li");
+    purchasedItems.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+    newDiv.append(purchasedItems);
+  });
   receiptSection.append(newDiv);
   receiptSection.classList.remove("hide");
   checkoutSection.classList.add("hide");
   console.log(newDiv);
 });
-// GO BACK TO TAXED TOTAL N FIX LATER
-// taxes
-// remove func n button
-// checkout func n button
-// inputs for card payment
