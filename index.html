@@ -40,6 +40,7 @@
       <div class="checkout">
         <p class="total">0</p>
         <div class="closeShopping">Close</div>
+        <button class="start-checkout">Checkout</button>
       </div>
     </div>
 
@@ -62,7 +63,20 @@
       <h3>Products</h3>
       <ul class="products"></ul>
     </section>
-
+    <section class="checkout-section hide">
+      <form class="credit">
+        <label for="cardNumber">Card Number: </label>
+        <input type="number" id="cardNumber" />
+        <label for="accountHolder">Name On Card: </label>
+        <input type="text" id="accountHolder" />
+        <label for="expirationDate">Expiration Date: </label>
+        <input type="number" id="expirationDate" />
+        <label for="cvv">CVV: </label>
+        <input type="password" id="cvv" />
+        <button class="confirm-button">Checkout</button>
+      </form>
+    </section>
+    <section class="receipt hide"></section>
     <footer>
       <img />
       <p>Terms and Conditions</p>

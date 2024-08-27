@@ -7,6 +7,12 @@ const body = document.querySelector("body");
 let total = document.querySelector(".total");
 let quantity = document.querySelector(".quantity");
 const cartContainer = document.querySelector(".cart-container");
+
+const startCheckoutButton = document.querySelector(".start-checkout");
+const checkoutSection = document.querySelector(".checkout-section");
+const creditForm = document.querySelector(".credit");
+const confirmButton = document.querySelector(".confirm-button");
+const receiptSection = document.querySelector(".receipt");
 let runningTotal = 0;
 let cart = [];
 
@@ -181,16 +187,21 @@ cartContainer.addEventListener("click", (e) => {
   if (e.target.classList.contains("removeFromCart")) {
     console.log("removed");
     const index = e.target.getAttribute("data-index");
+    // console.log(index);
     cart.splice(index, 1);
     console.log(cart);
     console.dir(e.target);
     // this is the number in string format so far. vv
-    e.target.previousElementSibling.innerText;
-    runningTotal -= parseFloat(
-      e.target.previousElementSibling.innerText.slice(1)
-    );
+    // e.target.previousElementSibling.innerText;
+    // runningTotal -= parseFloat(
+    //   e.target.previousElementSibling.innerText.slice(1)
+    // );
 
-    e.target.parentNode.remove();
+    runningTotal = cart.reduce((prev, cv) => {
+      return prev + cv.price;
+    }, 0);
+    total.textContent = `Total: ${runningTotal}`; //tax not working
+    cartBuilder();
     console.log(runningTotal);
   }
 });
@@ -200,9 +211,11 @@ productList.addEventListener("click", (e) => {
     // console.log("add to cart button was clicked");
     const index = e.target.getAttribute("data-index");
     cart.push(products[index]);
-    runningTotal = runningTotal + parseFloat(products[index].price);
+    runningTotal = cart.reduce((prev, cv) => {
+      return prev + cv.price;
+    }, 0);
     // console.log(runningTotal);
-    // console.log(cart);
+    console.log(cart);
     // console.log(cart.length);
     const quantitySpan = document.querySelector(".quantity");
     quantitySpan.textContent = cart.length;
@@ -212,6 +225,34 @@ productList.addEventListener("click", (e) => {
     total.textContent = `Total: ${taxedTotal.toFixed(2)}`;
     console.log(taxedTotal);
   }
+});
+
+startCheckoutButton.addEventListener("click", (e) => {
+  console.log(e.target);
+  checkoutSection.classList.remove("hide");
+});
+
+creditForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const newDiv = document.createElement("div");
+  const newTitle = document.createElement("p");
+  const newSubtotal = document.createElement("p");
+  const tax = document.createElement("p");
+  const newTotal = document.createElement("p");
+
+  newDiv.classList.add("receipt");
+  newTitle.classList.add("title");
+  newTotal.classList.add("total");
+  newTitle.textContent = "Receipt";
+  newSubtotal.textContent = "Subtotal: " + runningTotal.toFixed(2);
+  tax.textContent = "Tax: " + (runningTotal * 0.06).toFixed(2);
+  newTotal.textContent = "Taxed Total: " + (runningTotal * 1.06).toFixed(2);
+  newDiv.append(newTitle, newSubtotal, tax, newTotal);
+  receiptSection.append(newDiv);
+  receiptSection.classList.remove("hide");
+  checkoutSection.classList.add("hide");
+  console.log(newDiv);
 });
 // GO BACK TO TAXED TOTAL N FIX LATER
 // taxes
